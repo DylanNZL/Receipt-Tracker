@@ -3,7 +3,7 @@ services:
 
   db:
     image: postgres:9.6
-    container_name: wowfood-postgres
+    container_name: receipt-tracker-postgres
     ports:
       - "5432:5432"
     environment:
