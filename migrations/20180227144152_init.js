@@ -26,6 +26,7 @@ exports.up = function(knex, Promise) {
             table.string('fname');
             table.string('lname');
             table.string('email');
+            table.string('password');
             table.timestamp('dob');
             table.string('address');
             table.timestamp('created_at').defaultTo(knex.fn.now());
@@ -37,6 +38,7 @@ exports.up = function(knex, Promise) {
 exports.down = function(knex, Promise) {
     return Promise.all([
         knex.schema.dropTable('receipt'),
+        knex.schema.dropTable('receipt_details'),
         knex.schema.dropTable('account')
     ])
 };

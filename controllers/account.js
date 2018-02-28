@@ -1,6 +1,6 @@
 const dAccount = require('../database/account.js');
 
-function createAccount(req, res, next) {
+async function createAccount(req, res, next) {
     console.log(req.body);
     let newAccount = {
         fname: req.body.fname,
@@ -20,6 +20,45 @@ function createAccount(req, res, next) {
         });
     }
 
+    let result = await dAccount.createAccount(newAccount);
+
+    console.log(result);
+    if (result === 0) {
+        res.status(200).jsonp({
+            account: 0,
+            success: false,
+            timestamp: Date.now()
+        })
+    } else {
+        res.status(200).jsonp({
+            account: result,
+            success: false,
+            timestamp: Date.now()
+        })
+    }
+}
+
+async function checkEmailIsUnused(req, res, next) {
+    console.log(req.body);
+    let email = req.body.email;
+
+    if (email === undefined) {
+        res.status(200).jsonp({
+            error: "Not all values supplied",
+            success: false,
+            timestamp: Date.now()
+        });
+    }
+
+    let result = await dAccount.checkEmailIsUnused(email);
+
+    console.log(result);
+    res.status(200).jsonp({
+        email_used: result,
+        success: false,
+        timestamp: Date.now()
+    })
 }
 
 exports.createAccount = createAccount;
+exports.checkEmailIsUnused = checkEmailIsUnused;

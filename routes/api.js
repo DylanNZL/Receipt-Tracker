@@ -12,6 +12,9 @@ router.use('/', function(req, res, next) {
         case "/api/createAccount":
             cAccount.createAccount(req, res, next);
             break;
+        case "/api/checkEmailIsUnused":
+            cAccount.checkEmailIsUnused(req, res, next);
+            break;
         case "/api/home":
             res.send('api', {});
             break;
