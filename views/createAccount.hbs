@@ -1,0 +1,67 @@
+<div class="col-md-8">
+    <form class="form-horizontal" action="/api/createAccount" method="post">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Create Account</legend>
+
+            <div class="form-row">
+                <!-- Fname -->
+                <div class="col-md-4 form-group">
+                    <label class="control-label" for="fname">First Name</label>
+                    <div class="">
+                        <input id="fname" name="fname" type="text" placeholder="John" class="form-control input-md" required="">
+                    </div>
+                </div>
+
+                <!-- lname-->
+                <div class="col-md-4 form-group">
+                    <label class="control-label" for="lname">Last Name</label>
+                    <div class="">
+                        <input id="lname" name="lname" type="text" placeholder="Doe" class="form-control input-md">
+                    </div>
+                </div>
+            </div>
+
+            <!-- DOB-->
+            <div class="form-row">
+                <div class="col-md-4 form-group">
+                    <label class="control-label" for="dob">Date of Birth</label>
+                    <div class="">
+                        <input id="dob" name="dob" type="date" placeholder="2018/2/28" class="form-control input-md">
+                        <span class="help-block">change to dob selecter</span>
+                    </div>
+                </div>
+
+            <!-- Email -->
+                <div class="col-md-4 form-group">
+                    <label class="control-label" for="email">Email</label>
+                    <div class="">
+                        <input id="email" name="email" type="email" placeholder="johndoe@gmail.com" class="form-control input-md" required="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Password-->
+            <div class="form-row">
+                <div class="col-md-4 form-group">
+                    <label class="control-label" for="password">Password</label>
+                    <div class="">
+                        <input id="password" name="password" type="password" placeholder="Password" class="form-control input-md" required="">
+                    </div>
+                </div>
+
+            <!-- Pw Duplicate -->
+                <div class="col-md-4 form-group">
+                    <label class="control-label" for="pw_confirm">Password</label>
+                    <div class="">
+                        <input id="pw_confirm" name="pw_confirm" type="password" placeholder="Password" class="form-control input-md" required="">
+                    </div>
+                </div>
+            </div>
+
+            <input type="submit" value="submit">
+
+        </fieldset>
+    </form>
+</div>
