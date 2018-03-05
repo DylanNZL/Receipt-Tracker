@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Receipt Tracker API</title>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Help keep long term track of your spending">
+    <meta name="keywords" content="Receipt Tracker, DylanNZ">
+    <meta name="author" content="DylanNZ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="receipts.dylannz.com" target="_blank">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <div style="margin-left: 25%; margin-right: 25%">
+        <h1>The back end api functions of the receipt tracker</h1>
+        <p>More details/inner workings can be found here: <a href="https://github.com/DylanNZL/Receipt-Tracker">https://github.com/DylanNZL/Receipt-Tracker</a></p>
+
+        <!-- /api/account/create -->
+        <div class="card">
+            <h5 class="card-title text-center">Create Account</h5>
+            <h6 class="card-subtitle mb-2 text-muted text-center"><a href="/api/account/create">/api/account/create</a></h6>
+            <p class="card-body">Creates a new account based on the data passed to it.<br><br>
+                Must be a POST request containing these variables:<br>
+                <span class="indent">fname</span><br>
+                <span class="indent">lname</span><br>
+                <span class="indent">dob</span><br>
+                <span class="indent">email</span><br>
+                <span class="indent">password</span><br>
+                <span class="indent">pw_confirm</span><br>
+             </p>
+
+            <div class="card-footer json">
+                <h5>Example:</h5>
+                <p>
+                </p>
+            </div>
+        </div>
+        <br><br>
+
+        <!-- /api/account/checkEmail -->
+        <div class="card">
+            <h5 class="card-title text-center">Check Email</h5>
+            <h6 class="card-subtitle mb-2 text-muted text-center"><a href="/api/account/checkEmail">/api/account/checkEmail</a></h6>
+            <p class="card-body">Check to see if an email has been used to register an account<br><br>
+                Must be a POST request containing these variables:<br>
+                <span class="indent">email</span><br>
+            </p>
+
+            <div class="card-footer json">
+                <h5>Example:</h5>
+                <p>
+                </p>
+            </div>
+        </div>
+        <br><br>
+
+        <!-- /api/receipt/create -->
+        <div class="card">
+            <h5 class="card-title text-center">Create Receipt</h5>
+            <h6 class="card-subtitle mb-2 text-muted text-center"><a href="/api/receipt/create">/api/receipt/create</a></h6>
+            <p class="card-body">Creates a new Receipt entry for that account <br><br>
+                Must be a POST request containing these variables:<br>
+                <span class="indent">account_id</span><br>
+                <span class="indent">purchase_date</span><br>
+                <span class="indent">shop</span><br>
+                <span class="indent">total</span><br>
+                <span class="indent">label</span><br>
+            </p>
+
+            <div class="card-footer json">
+                <h5>Example:</h5>
+                <p>
+                </p>
+            </div>
+        </div>
+        <br><br>
+
+        <!-- /api/receipt/delete -->
+        <div class="card">
+            <h5 class="card-title text-center">Delete Receipt</h5>
+            <h6 class="card-subtitle mb-2 text-muted text-center"><a href="/api/Receipt/create">/api/Receipt/create</a></h6>
+            <p class="card-body">Deletes the receipt with that id.<br><br>
+                Must be a POST request containing these variables:<br>
+                <span class="indent">receipt_id</span><br>
+            </p>
+
+            <div class="card-footer json">
+                <h5>Example:</h5>
+                <p>
+                </p>
+            </div>
+        </div>
+        <br><br>
+
+        <!-- /api/receipt/fromAccount -->
+        <div class="card">
+            <h5 class="card-title text-center">Receipts associated with Account</h5>
+            <h6 class="card-subtitle mb-2 text-muted text-center"><a href="/api/receipt/fromAccount">/api/receipt/fromAccount</a></h6>
+            <p class="card-body">Retrieves all saved receipts from that account.<br><br>
+                Must be a POST request containing these variables:<br>
+                <span class="indent">account_id</span><br>
+            </p>
+
+            <div class="card-footer json">
+                <h5>Example:</h5>
+                <p>
+                </p>
+            </div>
+        </div>
+        <br><br>
+
+        <!-- /api/receiptDetails/create -->
+        <div class="card">
+            <h5 class="card-title text-center">Create Receipt Details</h5>
+            <h6 class="card-subtitle mb-2 text-muted text-center"><a href="/api/receiptDetails/create">/api/receiptDetails/create</a></h6>
+            <p class="card-body">Creates a new receipt details entry.<br><br>
+                Must be a POST request containing these variables:<br>
+                <span class="indent">receipt_id</span><br>
+                <span class="indent">quantity</span><br>
+                <span class="indent">item</span><br>
+                <span class="indent">price</span><br>
+            </p>
+
+            <div class="card-footer json">
+                <h5>Example:</h5>
+                <p>
+                </p>
+            </div>
+        </div>
+        <br><br>
+
+        <!-- /api/receiptDetails/delete -->
+        <div class="card">
+            <h5 class="card-title text-center">Delete Receipt Details</h5>
+            <h6 class="card-subtitle mb-2 text-muted text-center"><a href="/api/receiptDetails/delete">/api/receiptDetails/delete</a></h6>
+            <p class="card-body">Deletes a receipt details entry<br><br>
+                Must be a POST request containing these variables:<br>
+                <span class="indent">receipt_detail_id</span><br>
+            </p>
+
+            <div class="card-footer json">
+                <h5>Example:</h5>
+                <p>
+                </p>
+            </div>
+        </div>
+        <br><br>
+
+        <!-- /api/receiptDetails/fromReceipt -->
+        <div class="card">
+            <h5 class="card-title text-center">Receipt details associated with Receipt</h5>
+            <h6 class="card-subtitle mb-2 text-muted text-center"><a href="/api/receiptDetails/fromReceipt">/api/receiptDetails/fromReceipt</a></h6>
+            <p class="card-body">Retrieves all details related to a receipt<br><br>
+                Must be a POST request containing these variables:<br>
+                <span class="indent">receipt_id</span><br>
+            </p>
+
+            <div class="card-footer json">
+                <h5>Example:</h5>
+                <p>
+                </p>
+            </div>
+        </div>
+        <br><br>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.js"></script>
+    <script src="https://unpkg.com/vue-select@latest"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>

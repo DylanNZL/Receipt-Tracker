@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+.indent {
+  margin-left:5%;
+}
+
+.json {
+  font: 12px Consolas;
+}
