@@ -1,4 +1,5 @@
 const dAccount = require('../database/account.js');
+const cUtility = require('./utility.js');
 
 async function createAccount(req, res, next) {
     console.log(req.body);
@@ -11,10 +12,12 @@ async function createAccount(req, res, next) {
         pw_confirm: req.body.pw_confirm
     };
 
-    if (newAccount.fname === undefined || newAccount.lname === undefined || newAccount.dob === undefined ||
-        newAccount.email === undefined || newAccount.password === undefined || newAccount.pw_confirm === undefined) {
+    // Check we received all values
+    let checkProperties = cUtility.checkProperties(newAccount);
+
+    if (checkProperties !== true) {
         res.status(200).jsonp({
-            error: "Not all values supplied",
+            error: checkProperties,
             success: false,
             timestamp: Date.now()
         });
@@ -32,7 +35,7 @@ async function createAccount(req, res, next) {
     } else {
         res.status(200).jsonp({
             account: result,
-            success: false,
+            success: true,
             timestamp: Date.now()
         })
     }
@@ -44,7 +47,7 @@ async function checkEmailIsUnused(req, res, next) {
 
     if (email === undefined) {
         res.status(200).jsonp({
-            error: "Not all values supplied",
+            error: "No email supplied",
             success: false,
             timestamp: Date.now()
         });
@@ -55,7 +58,7 @@ async function checkEmailIsUnused(req, res, next) {
     console.log(result);
     res.status(200).jsonp({
         email_used: result,
-        success: false,
+        success: true,
         timestamp: Date.now()
     })
 }
