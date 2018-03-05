@@ -30,15 +30,15 @@ router.use('/', function(req, res, next) {
         case "/api/receiptDetails/create":
             cReceiptDetails.createReceiptDetail(req, res, next);
             break;
-        case "/api/receiptDetails/create":
+        case "/api/receiptDetails/delete":
             cReceiptDetails.deleteReceiptDetail(req, res, next);
             break;
-        case "/api/receiptDetails/create":
+        case "/api/receiptDetails/fromReceipt":
             cReceiptDetails.findDetailsFromReceipt(req, res, next);
             break;
         // API Details page
-        case "/api/home":
-            res.send('api', {});
+        case "/api/details":
+            res.render('api', {});
             break;
         // 404 Not Found
         default:
@@ -47,9 +47,8 @@ router.use('/', function(req, res, next) {
                 success: false,
                 timestamp: Date.now()
             });
+            break;
     }
 });
-
-
 
 module.exports = router;

@@ -1,5 +1,5 @@
 const dReceipt = require('../database/receipt.js');
-const cUtility = require('utility.js');
+const cUtility = require('./utility.js');
 
 // TODO Check they are logged in and allowed to access these
 
